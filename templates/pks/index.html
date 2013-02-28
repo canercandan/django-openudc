@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{#{% load crispy_forms_tags %}#}
+
+{% block title %}PKS{% endblock %}
+{% block menu_pks %}active{% endblock %}
+
+{% block content %}
+<!-- <img src="{{ STATIC_URL }}pks/images/keys.jpg" alt="keys" style="width:140px"><br/> -->
+{% block form_block %}
+<form action="/pks/add" method="post">{% csrf_token %}
+  <h2>Add or update your public key</h2>
+  {{ add.as_p }}
+  <button type="submit" class="btn btn-primary btn-large">Add or Update</button>
+</form>
+{% endblock %}
+{% endblock %}

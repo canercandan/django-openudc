@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}index.html{% endblock %}</title>
+    <style type="text/css" media="screen">
+        .hidden {visibility: hidden;}
+        ul {list-style: none;}
+    </style>
+  </head>
+  <body id="id_body">
+      {% block menu %}
+          <ul>
+            <li><a href="/pgpauth/publickey/list/">Show all public key</a></li>
+            <li><a href="/pgpauth/publickey/page/">Upload public key and create account</a></li>
+          </ul>
+      {% endblock %}
+    {% block body %}
+        <input id="securesentence_id" value="{{ securesentence.id }}" type="hidden">
+        <div>please sign the <font style="font-weight: bold">BOLD</font> message(include ^[0-9]+\.) below here with your private PGP key to login the system:</div>
+        <div><font style="font-weight: bold" id="securesentence_content">{{ securesentence.id }}.{{ securesentence.sentence.content }}</font></div>
+        <div><textarea id="signed_content" cols="80" rows="15">{{ securesentence.id }}.{{ securesentence.sentence.content }}</textarea></div>
+        <button>Login</button>
+    {% endblock %}
+  </body>
+</html>

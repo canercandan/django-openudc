@@ -1,0 +1,20 @@
+{% extends 'pgpauth/index.html' %}
+{% block title %}profile{% endblock %}
+{% block menu %}
+  <ul>
+    <li><a href="/pgpauth/logout/">logout</a></li>
+  </ul>
+{% endblock %}
+{% block body %}
+    <div>username: {{ user.username }}</div>
+    <div>email: {{ user.email }}</div>
+    add pgp public key: <input type="file" name="file" id="file"
+        onChange="return createPublicKey(this);">
+    <div>public keys:</div>
+    <ul>
+        {% for key in user.publickey_set.all %}
+            <li>{{ key.formatFingerprint }} &lt;{{ key.email }}&gt;</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

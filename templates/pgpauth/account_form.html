@@ -1,0 +1,18 @@
+{% extends 'pgpauth/index.html' %}
+{% block title %}account_form.html{% endblock %}
+{% block menu %}{% endblock %}
+{% block body %}
+    {% if message %}
+        {{ message }}
+    {% else %}
+        <ul>
+            <li>choose username: <input type="text" id="username" value=""></li>
+            <li>please use your private key to sign the <font style="font-weight: bold">BOLD</font> message below,
+                and put the signed text into the textarea.
+            </li>
+            <li style="font-weight: bold">{{ sentence.content }}</li>
+            <li><textarea id="signed_content" cols="80" rows="20">{{ sentence.content }}</textarea></li>
+            <li><button onClick="return createAccount(this);">create account</button></li>
+        </ul>
+    {% endif %}
+{% endblock %}

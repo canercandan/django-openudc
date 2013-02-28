@@ -1,0 +1,18 @@
+{% extends 'pgpauth/index.html' %}
+{% block title %}All public key on the system{% endblock %}
+{% block menu %}
+  <ul>
+    <li><a href="/pgpauth/">Index</a></li>
+  </ul>
+{% endblock %}
+{% block body %}
+    {% if message %}
+        {{ message }}
+    {% else %}
+        <ul>
+            {% for key in PublicKey.objects.all %}
+                <li>{{ key.update_time|date:"Y-m-d H:i:s" }}: {{ key.formatFingerprint }} &lt;{{ key.briefEmail }}&gt;</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

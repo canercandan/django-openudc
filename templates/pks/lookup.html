@@ -1,0 +1,8 @@
+{% extends "pks/index.html" %}
+
+{% block form_block %}
+<form action="/pks/lookup" method="get">
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

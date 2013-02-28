@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block menu_capabilities %}active{% endblock %}
+
+{% block content %}
+<style type="text/css">
+  .capabilities th,
+  .capabilities .center {
+    text-align: center;
+  }
+</style>
+
+<h2>Node capabilities</h2>
+
+<table class="table table-bordered capabilities">
+  <!-- <caption>Capabilities</caption> -->
+  <thead>
+    <tr>
+      <th class="span2">Module</th>
+      <th>Feature</th>
+      <th class="span1">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="success">
+      <td>PKS</td>
+      <td>Add-Update</td>
+      <td class="center"><i class="icon-ok-sign"></i></td>
+    </tr>
+    <tr class="success">
+      <td>PKS</td>
+      <td>Lookup</td>
+      <td class="center"><i class="icon-ok-sign"></i></td>
+    </tr>
+    <tr class="error">
+      <td>Peers</td>
+      <td>Register</td>
+      <td class="center"><i class="icon-remove-sign"></i></td>
+    </tr>
+    <tr class="error">
+      <td>Peers</td>
+      <td>List</td>
+      <td class="center"><i class="icon-remove-sign"></i></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
