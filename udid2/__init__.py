@@ -16,29 +16,17 @@
 # Caner Candan <caner@candan.fr>, http://caner.candan.fr
 #
 
-__all__ = ['PyUDC']
+__all__ = ['udid2']
 
 __author__      = 'Caner Candan'
 __version__     = '0.1'
 __nonsense__    = 'OpenUDC'
 
 import common
-
-# class PyUDC:
-#     """Main class"""
-
-#     def __init__(self):
-#         pass
-
-# def gen_udid():
-#     pass
-
 from pprint import pprint
-
 import Udid2, Parser
 
 if __name__ == '__main__':
-    #raise ValueError('Should be imported (import PyUDC)')
     udid2 = [x for x in Udid2.HashedVerboseParser()()]
     if not udid2:
         raise ValueError('no udid2 found with secret')

@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block title %}Ludd{% endblock %}</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" type="text/css" />
+    <meta charset="utf-8">
+    <title>{% block title %}OpenUDC{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}media/styles.css" />
+    <!-- <link rel="stylesheet" href="{{ STATIC_URL }}media/docs.css" /> -->
     <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" type="text/css" />
     <link rel="shortcut icon" href="{{ STATIC_URL }}ico/daemon.ico" />
   </head>
 
   <body>
-
-    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
 	<div class="container">
-	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
-	  </a>
-	  <a class="brand" href="#">
-	    <img src="{{ STATIC_URL }}ico/daemon.ico" style="width: 20px;"/>
-	  </a>
+	  </button>
+	  <!-- <a class="brand" href="#"> -->
+	  <!-- <img src="{{ STATIC_URL }}ico/daemon.ico" style="width: 20px;"/> &nbsp; -->
+	  <!-- </a> -->
+	  <a class="brand" href="/">OpenUDC</a>
 	  <div class="nav-collapse collapse">
 	    <ul class="nav">
     	      {% block menu %}
-              <li class="{% block menu_home %}{% endblock %}"><a href="/">Home</a></li>
-              <li class="{% block menu_pks %}{% endblock %}"><a href="/pks">PKS</a></li>
-              <li class="{% block menu_peers %}{% endblock %}"><a href="/peers">Peers</a></li>
-	      <li class="{% block menu_capabilities %}{% endblock %}"><a href="/capabilities">Capabilities</a></li>
+              <li class="{% block menu_home %}{% endblock %}"><a href="/"><i class="icon-home"></i> Home</a></li>
+              <li class="{% block menu_pks %}{% endblock %}"><a href="/pks"><i class="icon-user"></i> PKS</a></li>
+              <li class="{% block menu_peers %}{% endblock %}"><a href="/peers"><i class="icon-globe"></i> Peers</a></li>
+	      <li class="{% block menu_capabilities %}{% endblock %}"><a href="/capabilities"><i class="icon-ok-sign"></i> Capabilities</a></li>
 	      {% endblock menu %}
 	    </ul>
-            <form class="navbar-form pull-right" method="get">
+            <form class="navbar-form pull-right" action="/pks/lookup" method="get">
 	      <div class="input-prepend input-append">
 		<span class="add-on"><i class="icon-search"></i></span>
-		<input class="span2 search-query" type="text" placeholder="name, udid2, …">
+		<!-- <input class="span2 search-query" type="text" name="search" placeholder="name, udid2, …"> -->
+		<input class="span2 search-query" type="text" name="search" placeholder="name, udid2, …" autocomplete="off" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' />
 		<button type="submit" class="btn">Search</button>
 	      </div>
             </form>
 	  </div> <!--/.nav-collapse -->
-	</div>
-      </div>
-    </div>
+	</div> <!--./container -->
+      </div> <!--./navbar-inner -->
+    </div> <!--/.navbar -->
 
-    <div class="container">
+    <div class="{% block container %}container{% endblock %}">
       {% block content %}
       {% endblock content %}
 
       <hr/>
 
+      {% block footer %}
       <footer class="footer">
 	<div class="copy">
-	  © <a href="http://www.openudc.org">OpenUDC</a> - 2012 | Under <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License</a>
+	  <a href="http://www.openudc.org">OpenUDC</a> - version 0.0 | Under <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public License</a>
 	</div>
 	<nav>
     	  {% block footernav %}
     	  {% endblock %}
 	</nav>
       </footer>
+      {% endblock footer %}
 
       <!-- <br/> -->
 
@@ -70,7 +76,7 @@
       <!-- 	</div> -->
       <!-- </div> -->
 
-    </div> <!-- /container -->
+    </div> <!--/.container -->
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>

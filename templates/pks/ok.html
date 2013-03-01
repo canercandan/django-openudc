@@ -1,6 +1,7 @@
 {% extends "pks/index.html" %}
+{% load i18n %}
 
-{% block form_block %}
-<h2>Add or update your public key</h2>
-Thanks!<br/>
-{% endblock %}
+{% block pks_content %}
+<h2>{% trans "Add or update your public key" %}</h2>
+{% trans "Thanks!" %}<br/>
+{% endblock pks_content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}PKS{% endblock %}
+{% block menu_pks %}active{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+  <div class="span2">
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+	<li class="{% block pks_menu_list %}{% endblock %}"><a href="/pks"><i class="icon-user"></i> List the keys</a></li>
+	<li class="{% block pks_menu_add %}{% endblock %}"><a href="/pks/add"><i class="icon-plus"></i> Add a key</a></li>
+      </ul>
+    </div>
+  </div> <!--/.span2 -->
+
+  <div class="span10">
+    {% block pks_content %}
+    {% endblock pks_content %}
+  </div> <!--/.span10 -->
+</div> <!--/.row-fluid -->
+{% endblock %}

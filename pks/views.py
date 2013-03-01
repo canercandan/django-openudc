@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from models import Add, Lookup
+# from models import Add, Lookup
+from models import *
 
-def index(request):
-    return render(request, 'pks/index.html', {'add': Add(), 'lookup': Lookup(),})
+def list(request):
+    return render(request, 'pks/list.html', {'keys_list': KeysList(),})
 
 def add(request):
     if request.method == 'POST':

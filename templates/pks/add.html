@@ -1,9 +1,19 @@
-{% extends "pks/index.html" %}
+{% extends "pks/base.html" %}
+{% load i18n %}
 
-{% block form_block %}
-<form action="/pks/add" method="post">{% csrf_token %}
-  <h2>Add or update your public key</h2>
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary btn-large">Add or Update</button>
-</form>
-{% endblock %}
+{% block pks_menu_add %}active{% endblock %}
+
+{% block pks_content %}
+<h2>{% trans "Add or update your public key" %}</h2>
+<div class="row-fluid">
+  <div class="span9">
+    <form action="/pks/add" method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary btn-large">{% trans "Add or Update" %}</button>
+    </form>
+  </div>
+  <div class="span3" style="text-align: center;">
+    <img class="img-circle" src="{{ STATIC_URL }}pks/images/keys.jpg" alt="keys" style="width:140px; border: solid gray 1px; padding: 10px;"/>
+  </div>
+</div> <!--/.row-fluid -->
+{% endblock pks_content %}

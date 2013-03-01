@@ -1,0 +1,36 @@
+{% extends "pks/base.html" %}
+{% load i18n %}
+
+{% block pks_menu_list %}active{% endblock %}
+
+{% block pks_content %}
+<h2>{% trans "List of Udid2 keys" %}</h2>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <!-- <th>{% trans "Comment" %}</th> -->
+      <th class="span1">{% trans "Protocol" %}</th>
+      <th class="span2">{% trans "Name" %}</th>
+      <!-- <th>{% trans "Hashed" %}</th> -->
+      <!-- <th>{% trans "Visibility" %}</th> -->
+      <!-- <th>{% trans "Increment" %}</th> -->
+      <th>{% trans "Fingerprint" %}</th>
+      <th class="span2">{% trans "Email" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key in keys_list.keys %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+      <!-- <td>{{key.comment}}</td> -->
+      <td>{{key.protocol}}</td>
+      <td>{{key.name}}</td>
+      <!-- <td>{{key.hashed}}</td> -->
+      <!-- <td>{{key.visibility}}</td> -->
+      <!-- <td>{{key.increment}}</td> -->
+      <td>{{key.fingerprint}}</td>
+      <td>{{key.email}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock pks_content %}

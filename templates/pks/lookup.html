@@ -1,8 +1,9 @@
-{% extends "pks/index.html" %}
+{% extends "pks/base.html" %}
+{% load i18n %}
 
-{% block form_block %}
+{% block pks_content %}
 <form action="/pks/lookup" method="get">
-{{ form.as_p }}
-<input type="submit" value="Submit" />
+  {{ form.as_p }}
+  <input type="submit" value="Submit" />
 </form>
-{% endblock %}
+{% endblock pks_content %}

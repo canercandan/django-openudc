@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     # 'crispy_forms',
     'pks',
     'peers',
+    'udid2',
 )
 
 # A sample logging configuration. The only tangible logging

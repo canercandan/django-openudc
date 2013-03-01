@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from udid2 import Udid2
 
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 # from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+
+class KeysList:
+    keys = [x for x in Udid2.HashedVerboseParser()()]
 
 class Add(forms.Form):
     keytext = forms.CharField(label="",
