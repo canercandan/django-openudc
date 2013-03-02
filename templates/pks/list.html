@@ -4,7 +4,11 @@
 {% block pks_menu_list %}active{% endblock %}
 
 {% block pks_content %}
+{% if search %}
+<h2>{% trans "Looking for" %} "{{search}}"</h2>
+{% else %}
 <h2>{% trans "List of Udid2 keys" %}</h2>
+{% endif %}
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -19,7 +23,8 @@
     </tr>
   </thead>
   <tbody>
-    {% for key in keys_list.keys %}
+    {% for key in keys %}
+    {% if not search or key.name == search or key.comment == search or key.email == search %}
     <tr class="{% cycle 'row1' 'row2' %}">
       <!-- <td>{{key.comment}}</td> -->
       <td>{{key.protocol}}</td>
@@ -30,6 +35,7 @@
       <td>{{key.fingerprint}}</td>
       <td>{{key.email}}</td>
     </tr>
+    {% endif %}
     {% endfor %}
   </tbody>
 </table>

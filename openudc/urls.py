@@ -5,11 +5,13 @@ from django.views.generic import DetailView, ListView, TemplateView
 from django.contrib import admin
 admin.autodiscover()
 
+from udid2 import Udid2
+__keys__ = [x for x in Udid2.HashedVerboseParser()()]
+
 urlpatterns = patterns('',
                        # Examples
-                       # url(r'^$', 'openudc.views.home', name='home'),
-                       url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-                       url(r'^capabilities$', TemplateView.as_view(template_name='capabilities.html'), name='capabilities'),
+                       url(r'^$', 'openudc.views.home', name='home'),
+                       url(r'^capabilities$', 'openudc.views.capabilities', name='capabilities'),
 
                        # url(r'^openudc/', include('openudc.foo.urls')),
 

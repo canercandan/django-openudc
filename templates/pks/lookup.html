@@ -2,8 +2,11 @@
 {% load i18n %}
 
 {% block pks_content %}
-<form action="/pks/lookup" method="get">
-  {{ form.as_p }}
-  <input type="submit" value="Submit" />
+<form class="navbar-form" action="/pks/lookup" method="get">
+  <div class="input-prepend input-append">
+    <span class="add-on"><i class="icon-search"></i></span>
+    <input class="search-query" type="text" name="search" placeholder="name, udid2, …" autocomplete="off" data-provide="typeahead" data-items="4" data-source='[""{% for key in keys %},"{{key.name}}","{{key.email}}","{{key.comment}}"{% endfor %}]' />
+    <button type="submit" class="btn">Search</button>
+  </div>
 </form>
 {% endblock pks_content %}

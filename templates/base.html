@@ -33,14 +33,13 @@
 	      <li class="{% block menu_capabilities %}{% endblock %}"><a href="/capabilities"><i class="icon-ok-sign"></i> Capabilities</a></li>
 	      {% endblock menu %}
 	    </ul>
-            <form class="navbar-form pull-right" action="/pks/lookup" method="get">
+	    <form class="navbar-form pull-right" action="/pks/lookup" method="get">
 	      <div class="input-prepend input-append">
 		<span class="add-on"><i class="icon-search"></i></span>
-		<!-- <input class="span2 search-query" type="text" name="search" placeholder="name, udid2, …"> -->
-		<input class="span2 search-query" type="text" name="search" placeholder="name, udid2, …" autocomplete="off" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' />
+		<input class="span2 search-query" type="text" name="search" placeholder="name, udid2, …" autocomplete="off" data-provide="typeahead" data-items="4" data-source='[""{% for key in keys %},"{{key.name}}","{{key.email}}","{{key.comment}}"{% endfor %}]' {% if search %}value="{{search}}"{% endif %} />
 		<button type="submit" class="btn">Search</button>
 	      </div>
-            </form>
+	    </form>
 	  </div> <!--/.nav-collapse -->
 	</div> <!--./container -->
       </div> <!--./navbar-inner -->
