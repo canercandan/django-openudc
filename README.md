@@ -26,7 +26,7 @@ To make the project working on your own machine, there is several dependencies y
 * django 1.4/+
 * python2-sqlite
 
-### Get the repo
+### Get the repos
 
 When your ready, you have to call the following command line in order to get the project repository:
 
