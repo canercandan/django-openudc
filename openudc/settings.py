@@ -103,7 +103,6 @@ MIDDLEWARE_CLASSES = (
         # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'middleware.MyMiddleware.MyMiddleware',
     )
 
 ROOT_URLCONF = 'openudc.urls'
