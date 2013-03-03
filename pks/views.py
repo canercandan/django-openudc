@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from models import *
 
 from udid2 import Udid2
-__keys__ = [x for x in Udid2.HashedVerboseParser()()]
+__keys__ = [x for x in Udid2.ClearVerboseParser()()]
 
 def list(request):
     return render(request, 'pks/list.html', {'keys': __keys__,})

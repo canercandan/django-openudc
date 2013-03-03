@@ -55,7 +55,7 @@ class Finder(f.Comment):
 class Loader(l.Keys):
     """Download udid2 keys from the keyring"""
 
-    def __init__(self, secret=True, finder=Finder(), printer=pr.Fingerprint()):
+    def __init__(self, secret=False, finder=Finder(), printer=pr.Fingerprint()):
         l.Keys.__init__(self, secret=secret, finder=finder, printer=printer)
 
 class Parser(pa.Fingerprint):
