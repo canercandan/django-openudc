@@ -24,7 +24,8 @@ To make the project working on your own machine, there is several dependencies y
 
 * python2
 * django 1.4/+
-* python2-sqlite
+* python-sqlite
+* python-pyme
 
 ### Get the repos
 
