@@ -5,10 +5,11 @@
 
 {% block content %}
 {% block form_block %}
-<form action="/peers/register" method="post">{% csrf_token %}
+<!--<form action="/peers/register" method="post">{% csrf_token %}-->
   <h2>Subscribe your node</h2>
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary btn-large">Add or Update</button>
-</form>
+{{ form.as_p }}
+  <p>Functionality yet to come..</p>
+  <!--<button type="submit" class="btn btn-primary btn-large">Add or Update</button>-->
+  <!--</form>-->
 {% endblock %}
 {% endblock %}
